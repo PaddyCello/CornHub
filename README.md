@@ -186,3 +186,50 @@ sow_month: 12,
 One problem that adding the NewPlant form revealed, however, was that we had used a reserved word when defining our Plants model - somehow, it had not caused any problems until this point! This did still mean that we had to go to the plants/models.py and plants/seeds.json files in the back end, and change every instance of ‘name’ to ‘plant_name’.
 
 A crucial styling feature that we incorporated across the board was responsive design. This was due, almost entirely, to the fact that I wanted to integrate a Spotify plugin (complete with a playlist of predominantly metal songs with gardening pun names), and knew that gardeners would be listening on a mobile device:
+
+![photo](https://github.com/PaddyCello/CornHub/blob/2f19458324b0ff571058f45f5e1daa60a9c0ec7a/screenshots/IMG_5050.JPG)
+
+Purely because of this one feature, the entire site works on mobile. Similarly, we made a point of being as comprehensive with error handling and conditional rendering as we could possibly think of.
+
+The most ambitious feature of our app, by far, was the optional watering reminder for each saved plant. Building this involved several steps and a lot of experimentation, and was absolutely a collective effort. In a nutshell, this is how it works:
+
+- Clicking the reminder button generates a Date.now() timestamp and saves it to local storage, along with a payload of the plant ID, the watering frequency, the plant name and an instruction to water
+- On page load, a new Date.now() is generated and saved to state
+- On page load, the reminder payload is retrieved from local storage
+- The watering frequency is multiplied by 86.4 million (the number of milliseconds in a day) and added to the timestamp from the payload
+- This figure is compared to the current Date.now()
+- If the payload figure is the lower of the two numbers, a toast reminder is displayed, with a reminder to water, and the name of the plant to water; it will display a list if multiple plants need watering
+- When the toast appears, the payload is removed from local storage; accordingly, the toast also displays an instruction to click the reminder button again if further reminders are wanted
+
+For presentation purposes, we expedited the watering_frequency * 86.4 * 100000 figure to a mere five minutes; but in the deployed version, the original figure remains.
+
+# Bugs, Blockers and Wins
+
+Known or suspected bugs:
+- One or two images from the database don’t load
+- Geolocation settings on Weather component don’t always automatically default to user’s location
+- cornhubapp.herokuapp.com may not always redirect to the page unless the prefix http:// is specifically entered as part of the URL
+- Scrollbars may not stay hidden on Firefox
+- Default germination temperature is not the same on PlantShow as it is on NewPlant
+
+Blockers:
+
+- We did have to abandon profile images for the user, as we were unable to get our requests to Cloudinary to work as intended; however, we also realised we didn’t have much of a need for this feature in the first place
+- Deployment to Heroku resulted in the PlantShow page remaining blank unless the user was logged in. Eventually we figured out that we needed to refactor our GET request for the current user, so that the app wouldn’t hang if local storage was empty
+
+Wins:
+
+- By complete coincidence, the default font used in React-Bootstrap is apparently identical to the font in the PornHub logo
+- The team I assembled believed in the project every bit as much as I did, and brought a ton of great ideas
+
+# Key Learning and Future Features
+
+Learning-wise, my biggest takeaway is the power of teamwork. Without Jonty and Michael, this project would have been substantially smaller and far less interesting, and some of the features (especially the watering reminder) would have been impossible to build without the combined mental power of the three of us. I also learned to never hold back when asking specific people to work with me, as this would have been a missed opportunity had I done so.
+
+In terms of future features, on the whole the three of us are extremely happy with the end result; however, some additions could include:
+
+- Reminders for fertilization
+- Some fine-tuning on the aspect ratios for the plant photos
+- Changing PayPal integration from test to live
+- A mailto: link for users to make suggestions about plant edits
+
