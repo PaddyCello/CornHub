@@ -2,7 +2,7 @@
 
 # Project Brief
 
-In one week, build a full-stack app (PostgreSQL, Python/Django, React) with CRUD functionality, working solo, in a pair, or in a group of three. I opted for the latter, and recruited Jonty Ward and Michael Henderson to form a team.
+In one week, build a full-stack app (PostgreSQL, Python/Django, React) with CRUD functionality, working solo, in a pair, or in a group of three. I opted for the latter, and recruited [Jonty Ward](https://github.com/jonty-ward) and [Michael Henderson](https://github.com/Awyssa) to form a team.
 
 # Link to Deployed Project
 
