@@ -20,15 +20,16 @@ I am an avid gardener, and find that I often have to consult multiple sources in
 
 # Technologies Used
 
-Python
-Django
-PostgreSQL
-React
-JavaScript
-CSS
-React-Bootstrap
-GitHub
-Heroku
+- Python
+- Django
+- PostgreSQL
+- React
+- JavaScript
+- CSS
+- Axios
+- React-Bootstrap
+- GitHub
+- Heroku
 
 # Approach Taken
 
