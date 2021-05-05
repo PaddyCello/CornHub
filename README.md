@@ -1,5 +1,4 @@
-# CornHub
-Gardening app for hardcore gardeners
+# Project Four - CornHub
 
 # Project Brief
 
