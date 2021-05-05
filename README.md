@@ -41,5 +41,16 @@ I actually came up with the concept a few days before we were set to begin the p
 
 Fortunately, Jonty and Michael turned out to be perfect for the team, and were both sold on the concept pretty much immediately when I told them about it. More pseudocode was promptly written, with post-MVP features even listed in order of preference, and wireframes of design layout and user flow were made on Exacalidraw. We started a Trello for visibility, task assignment and assessment of priorities, and a Google Sheet for collecting information for our database. Crucially, we outlined models for our User and our Plants with every field that we felt we might conceivably need, so as to avoid having to make subsequent changes.
 
+![screenshot](https://github.com/PaddyCello/CornHub/blob/6c468435f15c3b90438d8e01de51a4bd933a1928/screenshots/Screenshot%202021-05-05%20at%2015.46.44.png)
 
+We were at this stage still getting to grips with Django, and were looking to avoid potential problems; this also meant that our starting point was to work in a group until our back end was built out completely (albeit with some fairly test data) and our front end was attached, with a skeleton of components waiting to be filled with code. We also spent an evening individually researching CSS frameworks, and decided that React-Bootstrap was the one for the job.
 
+With all of this done, it became much easier to assign solo tasks. As a general rule throughout the project, we worked as a full group on the most complex tickets, and saved the more straightforward ones for evenings and the weekend. This was not our original plan, but we discovered while building the back end together that we had a terrific dynamic as a group, both in terms of skills and morale, and it made sense to take advantage of this as much as possible.
+
+One of our ongoing solo tasks was of course adding to our data set. This proved to be quite time consuming, owing to the number of fields on the Plants model, and our emphasis on accuracy. Thankfully, spending hours researching potatoes and courgettes was hugely enjoyable.
+
+One of my first tasks was to build out the main index page for the plants. I had wanted something that was searchable in multiple ways, and would also filter data according to current month (one category each for sow, plant and harvest), with a carousel of random plants as a hero image - perhaps a loose homage to Netflix. The selections for current month proved to be straightforward, as I had the foresight to consider JavaScript date objects when building out the model in Django - months are numbers instead of strings, and zero-indexed, thus making them easy to evaluate against a new Date(). However, displaying the current month as a string took a bit more research; the solution is as follows:
+
+```
+thisDate.toLocaleString('default', { month: 'long' })
+```
