@@ -15,6 +15,10 @@ I am an avid gardener, and find that I often have to consult multiple sources in
 
 ![screenshot](https://github.com/PaddyCello/CornHub/blob/fc04d2a2de8a5afbe36b9899879d7c9caedd862a/screenshots/Screenshot%202021-05-02%20at%2008.15.04.png)
 
+![screenshot](https://github.com/PaddyCello/CornHub/blob/818e2cb25a6a66f568ac9ccec76cd772453c804a/screenshots/Screenshot%202021-05-02%20at%2008.15.51.png)
+
+![screenshot](https://github.com/PaddyCello/CornHub/blob/818e2cb25a6a66f568ac9ccec76cd772453c804a/screenshots/Screenshot%202021-05-02%20at%2008.16.53.png)
+
 
 
 
