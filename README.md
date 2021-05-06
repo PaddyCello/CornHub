@@ -12,7 +12,7 @@ In one week, build a full-stack app (PostgreSQL, Python/Django, React) with CRUD
 
 # Link to Deployed Project
 
-[cornhubapp.herokuapp.com](http://cornhubapp.herokuapp.com/)
+[cornhubapp.herokuapp.com](https://cornhubapp.herokuapp.com/)
 
 # Overview and Concept
 
@@ -208,7 +208,6 @@ For presentation purposes, we expedited the watering_frequency * 86.4 * 100000 f
 Known or suspected bugs:
 - One or two images from the database don’t load
 - Geolocation settings on Weather component don’t always automatically default to user’s location
-- cornhubapp.herokuapp.com may not always redirect to the page unless the prefix http:// is specifically entered as part of the URL
 - Scrollbars may not stay hidden on Firefox
 - Default germination temperature is not the same on PlantShow as it is on NewPlant
 
