@@ -41,7 +41,7 @@ I actually came up with the concept a few days before we were set to begin the p
 
 Fortunately, Jonty and Michael turned out to be perfect for the team, and were both sold on the concept pretty much immediately when I told them about it. More pseudocode was promptly written, with post-MVP features even listed in order of preference, and wireframes of design layout and user flow were made on Exacalidraw. We started a Trello for visibility, task assignment and assessment of priorities, and a Google Sheet for collecting information for our database. Crucially, we outlined models for our User and our Plants with every field that we felt we might conceivably need, so as to avoid having to make subsequent changes.
 
-```
+```python
 class Plants(models.Model):
     plant_name = models.CharField(max_length=50)
     subspecies = models.CharField(max_length=80, blank=True)
@@ -74,7 +74,7 @@ One of our ongoing solo tasks was of course adding to our data set. This proved 
 
 One of my first tasks was to build out the main index page for the plants. I had wanted something that was searchable in multiple ways, and would also filter data according to current month (one category each for sow, plant and harvest), with a carousel of random plants as a hero image - perhaps a loose homage to Netflix. The selections for current month proved to be straightforward, as I had the foresight to consider JavaScript date objects when building out the model in Django - months are numbers instead of strings, and zero-indexed, thus making them easy to evaluate against a new Date(). However, displaying the current month as a string took a bit more research; the solution is as follows:
 
-```
+```javascript
 thisDate.toLocaleString('default', { month: 'long' })
 ```
 
