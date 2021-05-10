@@ -83,7 +83,7 @@ Post-MVP, I did also add in functionality for the user to select other months th
 Deciding on search conditions for the entire set of plants took a bit more thought. Eventually I settled on an initial filter based off of difficulty level, returning progressively more plants as the 
 difficulty level increased; plus a simple text field that would search for strings in Name, Subspecies and Type.
 
-```
+```javascript
 const handleChange = (event) => {
     setDifficulty(Number(event.target.value))
   }
@@ -96,7 +96,7 @@ const handleChange = (event) => {
     setRightPlants(searchList)
   }
 ```
-```
+```javascript
 <Table responsive>
   <tbody>
     <tr>
@@ -117,7 +117,7 @@ const handleChange = (event) => {
 
 As the above snippet also demonstrates, I used React-Bootstrap <Table> for horizontal scrolls. I did have to hide the scroll bar though (this also helped take care of visible scroll bars on the Weather page):
 
-```
+```css
 ::-webkit-scrollbar {
   display: none;
 }
@@ -125,7 +125,7 @@ As the above snippet also demonstrates, I used React-Bootstrap <Table> for horiz
 
 The hero image carousel was another React-Bootstrap component, and populated with a random set of six plants from the GET request for all plants. I added a little bit of error handling to avoid duplicates and ensure that the number of plants is the same on every page load:
 
-```
+```javascript
       const randomNums = []
       for (let i = 0; randomNums.length <= 5; i++) {
         const num = Math.floor(Math.random() * response.data.length)
@@ -141,13 +141,13 @@ The hero image carousel was another React-Bootstrap component, and populated wit
 
 Additionally, every entry in the scrollbars and carousel serves as a fastlink to a page that will display all of the information on that plant, with the option to save the plant to the user profile if the user is logged in (and the option to log in if they aren’t), plus a button to go back to the index page. It was pointed out later that this component is also reachable from the Weather page (which was built by one of my teammates), and that this should be reflected in the behaviour of the ‘Back’ button. After a good hour of Googling, I discovered that the solution to this is ridiculously simple:
 
-```
+```javascript
 history.goBack()
 ```
 
 With all of this done, my next task was to design our landing page. The design is simple, but sets an example for the other pages in terms of fonts, layouts and hex colours. (Subsequently, we did also style the Auth page together as a group, to further ensure consensus on styling.) As a fun extra feature, I incorporated a random subtitle generator with a Math.random() and an array of quotes, so that different subtitles will appear on page load:
 
-```
+```javascript
 const Title = () => {
   const subtitles = ['For hardcore gardeners.', 'Nothing seedy... only plants.', 'Full of photos of dirty, filthy... root vegetables.']
   const [subtitle, setSubtitle] = useState(subtitles[0])
@@ -162,7 +162,7 @@ const Title = () => {
 
 Another important feature that I added was the POST request for new plants, only available to the user once they are logged in. This feature mattered, as the subject matter for the app is vast, and open-source contribution would be a quick and effective way to build a comprehensive database. As shown on the Plants model earlier, I have included a field, verified_by_admin, that defaults to false; the idea being that this could be changed to true through the Django admin panel once we have had the opportunity to verify the information provided. Until that point, the plant would still display on the app, but with a disclaimer:
 
-```
+```javascript
 {onePlant.verified_by_admin === false
       ? <p className="not-yet">Not yet verified by CornHub</p>
       : <p></p>
@@ -172,11 +172,11 @@ Another important feature that I added was the POST request for new plants, only
 I also set some specific, arbitrary defaults for numerical fields (which Django did not allow us to leave blank), so that erroneous information would not display on the PlantShow page if the user was submitting a partial data set - something that we had permitted, as the model actually has no required fields. These were then handled in PlantShow through conditional renders. For example, here is what happens when the user doesn’t know the sowing month of the plant they are submitting (remember that months are zero-indexed):
 
 (in form data default state for POST request)
-```
+```javascript
 sow_month: 12,
 ```
 (conditional render for PlantShow)
-```
+```javascript
 {onePlant.sow_month !== 12
       ? <p>Sow in: {monthNames[onePlant.sow_month]}</p>
       : <p></p>
