@@ -115,7 +115,7 @@ const handleChange = (event) => {
 </Table>
 ```
 
-As the above snippet also demonstrates, I used React-Bootstrap <Table> for horizontal scrolls. I did have to hide the scroll bar though (this also helped take care of visible scroll bars on the Weather page):
+As the above snippet also demonstrates, I used React-Bootstrap `<Table>` for horizontal scrolls. I did have to hide the scroll bar though (this also helped take care of visible scroll bars on the Weather page):
 
 ```css
 ::-webkit-scrollbar {
